@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
 import { Subscription } from 'rxjs';
@@ -7,17 +7,12 @@ import { Subscription } from 'rxjs';
   selector: 'app-users',
   templateUrl: './users.component.html',
 })
-export class UsersComponent implements OnInit, OnDestroy {
+export class UsersComponent implements OnInit {
   usersFromService: User[];
   usersFromStore: User[];
   userSelected: User;
-  subscription: Subscription;
 
-  constructor(
-    private userService: UserService
-  ) {
-    this.subscription = new Subscription();
-  }
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -35,8 +30,5 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   get isSelected(): boolean {
     return !!this.userSelected;
-  }
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 }
