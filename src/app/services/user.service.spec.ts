@@ -41,9 +41,9 @@ xdescribe('UserService', () => {
     service = TestBed.inject(UserService);
   });
 
-  // afterEach(() => {
-  //   httpTestingController.verify();
-  // });
+  afterEach(() => {
+    httpTestingController.verify();
+  });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
@@ -58,8 +58,8 @@ xdescribe('UserService', () => {
   });
 
   it('should test http.get', () => {
-    service.getUsers().subscribe((users) => {
-      expect(usersMock).toBe(users);
+    service.getUsers(1).subscribe((users) => {
+      expect(usersMock).toEqual(users);
     });
     const req = httpTestingController.expectOne(`${service.URL}/users?page=1`);
     expect(req.request.method).toBe('GET');

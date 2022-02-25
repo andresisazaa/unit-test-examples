@@ -8,7 +8,7 @@ import { GetUsersDTO, UserDTO } from '../models/get-users-dto.model';
   providedIn: 'root',
 })
 export class UserService {
-  public readonly URL = 'https://reqres.in/api';
+  readonly URL = 'https://reqres.in/api';
   constructor(private http: HttpClient) {}
   getUsers(page: number = 1): Observable<User[]> {
     return this.http.get<GetUsersDTO>(`${this.URL}/users?page=${page}`).pipe(
