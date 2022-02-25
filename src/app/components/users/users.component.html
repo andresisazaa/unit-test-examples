@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="d-flex justify-content-center flex-wrap">
+    <app-user
+      *ngFor="let user of usersFromService"
+      [user]="user"
+      (onSelectUser)="getUserSelected($event)"
+    ></app-user>
+  </div>
+  <button class="btn btn-primary" (click)="getUsers()">Get Users</button>
+  <app-user *ngIf="isSelected" [user]="userSelected" [isSelected]="isSelected"></app-user>
+</div>
