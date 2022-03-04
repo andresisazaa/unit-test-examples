@@ -7,7 +7,7 @@ import { UserService } from 'src/app/services/user.service';
 import { By } from '@angular/platform-browser';
 import { UserComponent } from '../user/user.component';
 
-xdescribe('UsersComponent', () => {
+describe('UsersComponent', () => {
   let component: UsersComponent;
   let fixture: ComponentFixture<UsersComponent>;
   let usersService: Partial<UserService>;
